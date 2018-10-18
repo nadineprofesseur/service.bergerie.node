@@ -10,6 +10,10 @@ var repondre = async function(requete, reponse)
 			var listeMoutons = await moutonDAO.listerMoutons();
 			reponse.end(JSON.stringify(listeMoutons));			
 		}
+		if(requete.url.match(/\/mouton\/[0-9]+\/?/))
+		{
+			reponse.end('match un seul mouton');
+		}
 	}
 	if('POST' === requete.method)
 	{
