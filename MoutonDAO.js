@@ -6,13 +6,15 @@ exports.listerMoutons = async function()
 	await basededonnees.connect();
 	//console.log('base de donnees ' + JSON.stringify(basededonnees));
 	var curseurListeMouton = await basededonnees.query('select * from mouton');
-	//console.log(listeMouton);
+
+	var listeMoutons = {}; var position = 0;
 	curseurListeMouton.rows.forEach
 	(
 		mouton=>
 		{
-			console.log(mouton.nom + " (" + mouton.couleur + "," 
-					+ mouton.naissance + ")");
+			console.log(mouton.nom + " (" + mouton.couleur + "," + mouton.naissance + ")");
+			listeMoutons[position++] = mouton;
 		}
 	);
+	return listeMoutons;
 }

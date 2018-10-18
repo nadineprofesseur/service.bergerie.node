@@ -3,8 +3,11 @@ var http = require('http');
 var serveur = http.createServer(
 	function(requete, reponse) 
 	{
-		// appel postgres dans evenement de requete http
-		moutonDAO.listerMoutons().then(console.log);
+		var listeMoutons = moutonDAO.listerMoutons().then(console.log);
+		for(position in listeMoutons)
+		{
+			console.log(JSON.stringify(listeMoutons[position]));
+		}
 		reponse.end('Donnees listées');
 	}
 );
