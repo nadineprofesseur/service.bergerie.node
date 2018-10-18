@@ -5,9 +5,9 @@ exports.listerMoutons = async function()
 	var basededonnees = new postgresql.Client(chaineDeConnection);
 	await basededonnees.connect();
 	//console.log('base de donnees ' + JSON.stringify(basededonnees));
-	var listeMouton = await basededonnees.query('select * from mouton');
+	var curseurListeMouton = await basededonnees.query('select * from mouton');
 	//console.log(listeMouton);
-	listeMouton.rows.forEach
+	curseurListeMouton.rows.forEach
 	(
 		mouton=>
 		{
