@@ -12,7 +12,7 @@ exports.listerMoutons = async function()
 	(
 		mouton=>
 		{
-			console.log(mouton.nom + " (" + mouton.couleur + "," + mouton.naissance + ")");
+			console.log("DAO:" + mouton.nom + " (" + mouton.couleur + "," + mouton.naissance + ")");
 			listeMoutons[position++] = mouton;
 		}
 	);
