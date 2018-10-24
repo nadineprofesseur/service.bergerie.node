@@ -34,6 +34,7 @@ var repondre = async function(requete, reponse)
 			mouton = JSON.parse(mouton).mouton; // recupere la racine
 			console.log("Mouton : " + mouton.nom);
 			console.log(JSON.stringify(mouton));
+			moutonDAO.ajouterMouton(mouton);//await 
 		});
 	}
 	reponse.end('');

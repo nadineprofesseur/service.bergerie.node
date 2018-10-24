@@ -21,7 +21,7 @@ exports.listerMoutons = async function()
 
 exports.chercherMouton = async function(numero)
 {
-	console.log("MoutonDAO.chercherMouton()");
+	console.log("MoutonDAO.chercherMouton("+numero+")");
 	var basededonnees = new postgresql.Client(chaineDeConnection);
 	await basededonnees.connect();
 	var sql = 'select * from mouton where id = ' + numero;
@@ -30,3 +30,16 @@ exports.chercherMouton = async function(numero)
 	var mouton = curseurListeMouton.rows[0];
 	return mouton;
 }
+
+exports.ajouterMouton = async function(mouton)
+{
+	console.log("MoutonDAO.ajouterMouton("+JSON.stringify(mouton)+")");
+	var basededonnees = new postgresql.Client(chaineDeConnection);
+	await basededonnees.connect();
+	var sql = "insert into mouton(nom, couleur, naissance, poids) values('{{nom}}','{{couleur}}','{{naissance}}','{{poids}}')";
+	sql = sql.replace("{{nom}}", mouton.nom).replace("{{couleur}}", mouton.couleur).replace("{{naissance}}", mouton.naissance).replace("{{poids}}", mouton.poids);
+	console.log(sql);
+	basededonnees.query(sql); //await 
+}
+
+
