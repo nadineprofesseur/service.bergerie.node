@@ -13,7 +13,11 @@ var repondre = async function(requete, reponse)
 		if(trouvailles = requete.url.match(/\/mouton\/([0-9]+)\/?/))
 		{
 			numero = trouvailles[1];
-			reponse.end('match un seul mouton ' + numero);
+			console.log('match un seul mouton ' + numero);
+			
+			var mouton = await moutonDAO.chercherMouton(numero);
+			console.log('mouton recu par le service ' + JSON.stringify(mouton));
+			reponse.end(JSON.stringify(mouton));
 		}
 	}
 	if('POST' === requete.method)
