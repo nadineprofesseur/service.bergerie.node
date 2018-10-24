@@ -22,12 +22,13 @@ var repondre = async function(requete, reponse)
 	}
 	if('POST' === requete.method)
 	{
-		var data = ''; 
-		requete.on('data', function(message){ data += message;});
+		var uri = ''; 
+		requete.on('data', function(message){ uri += message;});
 		requete.on('end', function()
 		{
-			console.log(JSON.stringify(data));
-			var listeChamps = data.split("&");
+			uri = decodeURI(uri);
+			console.log(JSON.stringify(uri));
+			var listeChamps = uri.split("&");
 			for(var position in listeChamps)
 			{
 				var champs = listeChamps[position];
