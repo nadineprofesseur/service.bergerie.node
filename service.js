@@ -28,18 +28,12 @@ var repondre = async function(requete, reponse)
 		{
 			uri = decodeURI(uri);
 			uri = uri.replace(/%3A/g, ":").replace(/%2C/g,",");
-			console.log(uri);
-			//var listeChamps = uri.split("&");
-			//for(var position in listeChamps)
-			//{
-				//var champs = listeChamps[position];
-				//console.log(champs);
-				[cle, mouton] = uri.split("=");
-				console.log(cle + " = " + mouton);
-				//mouton = JSON.parse(mouton);
-				//console.log(JSON.stringify(mouton));
-				
-			//}
+			//console.log(uri);
+			[cle, mouton] = uri.split("=");
+			console.log(mouton);
+			mouton = JSON.parse(mouton);
+			//console.log("Mouton : " + mouton.nom);
+			//console.log(JSON.stringify(mouton));
 		});
 	}
 	reponse.end('');
