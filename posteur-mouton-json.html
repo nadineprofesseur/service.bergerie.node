@@ -1,0 +1,63 @@
+<html>
+	<head>
+	
+	<style>
+	
+	form
+	{
+		border:dotted #333333 2px;
+		width:400px;
+		padding:10px;
+	}
+	
+	form > div
+	{
+		border:solid 1px #333333;
+		border-radius:10px;
+		padding:5px;margin:5px;
+		background-color:#eeeeee;
+	}
+	
+	label 
+	{
+		display:block;
+	}
+	
+	input[type=submit]
+	{
+		width:100%;
+	}
+	
+	textarea
+	{
+		width:370px;
+		height:300px;
+	}
+	
+	</style>
+	
+	</head>
+	<body>
+	
+	<h1>Formulaire de test</h1>
+	<h2>Ajouter un mouton</h2>
+	
+		<form method="post" action="http://127.0.0.1:8080">
+		
+			<div>
+				<label for="mouton">Mouton</label>
+				<textarea name="mouton" id="mouton">{
+  "mouton": {
+    "nom": "toto",
+    "couleur": "blanc",
+    "naissance": "2018-10-01",
+    "poids": "5"
+  }
+}				</textarea>
+			</div>
+			<input type="submit"/>
+		</form>
+	
+	
+	</body>
+</html>
