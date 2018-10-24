@@ -31,9 +31,9 @@ var repondre = async function(requete, reponse)
 			//console.log(uri);
 			[cle, mouton] = uri.split("=");
 			console.log(mouton);
-			mouton = JSON.parse(mouton);
-			//console.log("Mouton : " + mouton.nom);
-			//console.log(JSON.stringify(mouton));
+			mouton = JSON.parse(mouton).mouton; // recupere la racine
+			console.log("Mouton : " + mouton.nom);
+			console.log(JSON.stringify(mouton));
 		});
 	}
 	reponse.end('');
