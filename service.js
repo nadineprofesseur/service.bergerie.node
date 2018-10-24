@@ -27,7 +27,8 @@ var repondre = async function(requete, reponse)
 		requete.on('end', function()
 		{
 			uri = decodeURI(uri);
-			console.log(JSON.stringify(uri));
+			uri = uri.replace(/%3A/g, ":").replace(/%2C/g,",");
+			console.log(uri);
 			//var listeChamps = uri.split("&");
 			//for(var position in listeChamps)
 			//{
@@ -35,8 +36,8 @@ var repondre = async function(requete, reponse)
 				//console.log(champs);
 				[cle, mouton] = uri.split("=");
 				console.log(cle + " = " + mouton);
-				mouton = JSON.parse(mouton);
-				console.log(JSON.stringify(mouton));
+				//mouton = JSON.parse(mouton);
+				//console.log(JSON.stringify(mouton));
 				
 			//}
 		});
