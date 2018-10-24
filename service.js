@@ -28,15 +28,17 @@ var repondre = async function(requete, reponse)
 		{
 			uri = decodeURI(uri);
 			console.log(JSON.stringify(uri));
-			var listeChamps = uri.split("&");
-			for(var position in listeChamps)
-			{
-				var champs = listeChamps[position];
+			//var listeChamps = uri.split("&");
+			//for(var position in listeChamps)
+			//{
+				//var champs = listeChamps[position];
 				//console.log(champs);
-				[cle, valeur] = champs.split("=");
-				console.log(cle + " = " + valeur);
+				[cle, mouton] = uri.split("=");
+				console.log(cle + " = " + mouton);
+				mouton = JSON.parse(mouton);
+				console.log(JSON.stringify(mouton));
 				
-			}
+			//}
 		});
 	}
 	reponse.end('');
